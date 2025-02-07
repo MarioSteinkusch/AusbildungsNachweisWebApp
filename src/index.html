@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Definiert die Sprache der Webseite als Deutsch -->
+<html lang="de">
+<head>
+    <!-- Definiert die Zeichenkodierung der Webseite als UTF-8 (Unicode Transformation Format 8-bit)-->
+    <meta charset="UTF-8">
+    <!-- Diese Zeile legt die Breite des Ansichtsfensters auf die Breite des Geräts fest und skaliert den Inhalt entsprechend, um eine optimale Darstellung auf verschiedenen Geräten zu gewährleisten. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ausbildungsnachweis</title>
+    <!-- Verlinkung der externen CSS-Datei -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+     <div class="theme-switch-wrapper">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </label>
+    </div>
+    <h1>Ausbildungsnachweis</h1>
+    <!-- Formular für den Ausbildungsnachweis -->
+    <form id="ausbildungsnachweis-form">
+        <!-- Eingabefeld für den Namen des/der Auszubildenden -->
+        <label for="name">Name des/der Auszubildenden:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <!-- Eingabefeld für das Ausbildungsjahr -->
+        <label for="ausbildungsjahr">Ausbildungsjahr:</label>
+        <input type="number" id="ausbildungsjahr" name="ausbildungsjahr" required><br>
+
+        <!-- Eingabefeld für den Ausbildungsbereich -->
+        <label for="ausbildungsbereich">Ausbildungsbereich:</label>
+        <input type="text" id="ausbildungsbereich" name="ausbildungsbereich" required><br>
+
+        <!-- Eingabefeld für die Ausbildungswoche -->
+        <label for="woche">Ausbildungswoche:</label>
+        <input type="week" id="woche" name="woche" required><br>
+
+        <!-- Eingabefelder für Montag -->
+        <div class="day-container" data-day="montag">
+            <label for="montag_activity_0">Tätigkeiten Montag:</label>
+            <textarea id="montag_activity_0" name="montag_activity_0" rows="5" required></textarea><br>
+    
+            <label for="stunden_montag_0">Stunden Montag:</label>
+            <input type="number" id="stunden_montag_0" name="stunden_montag_0" required><br>
+    
+            <button type="button" class="add-row" data-day="montag">+</button>
+        </div>
+
+        <!-- Eingabefelder für Dienstag -->
+        <div class="day-container" data-day="dienstag">
+            <label for="dienstag_activity_0">Tätigkeiten Dienstag:</label>
+            <textarea id="dienstag_activity_0" name="dienstag_activity_0" rows="5" required></textarea><br>
+        
+            <label for="stunden_dienstag_0">Stunden Dienstag:</label>
+            <input type="number" id="stunden_dienstag_0" name="stunden_dienstag_0" required><br>
+        
+            <button type="button" class="add-row" data-day="dienstag">+</button>
+        </div>
+
+        <!-- Eingabefelder für Mittwoch -->
+        <div class="day-container" data-day="mittwoch">
+            <label for="mittwoch_activity_0">Tätigkeiten Mittwoch:</label>
+            <textarea id="mittwoch_activity_0" name="mittwoch_activity_0" rows="5" required></textarea><br>
+        
+            <label for="stunden_mittwoch_0">Stunden Mittwoch:</label>
+            <input type="number" id="stunden_mittwoch_0" name="stunden_mittwoch_0" required><br>
+        
+            <button type="button" class="add-row" data-day="mittwoch">+</button>
+        </div>
+
+        <!-- Eingabefelder für Donnerstag -->
+        <div class="day-container" data-day="donnerstag">
+            <label for="donnerstag_activity_0">Tätigkeiten Donnerstag:</label>
+            <textarea id="donnerstag_activity_0" name="donnerstag_activity_0" rows="5" required></textarea><br>
+        
+            <label for="stunden_donnerstag_0">Stunden Donnerstag:</label>
+            <input type="number" id="stunden_donnerstag_0" name="stunden_donnerstag_0" required><br>
+        
+            <button type="button" class="add-row" data-day="donnerstag">+</button>
+        </div>
+
+        <!-- Eingabefelder für Freitag -->
+        <div class="day-container" data-day="freitag">
+            <label for="freitag_activity_0">Tätigkeiten Freitag:</label>
+            <textarea id="freitag_activity_0" name="freitag_activity_0" rows="5" required></textarea><br>
+        
+            <label for="stunden_freitag_0">Stunden Freitag:</label>
+            <input type="number" id="stunden_freitag_0" name="stunden_freitag_0" required><br>
+        
+            <button type="button" class="add-row" data-day="freitag">+</button>
+        </div>
+
+        <!-- Eingabefeld für die Gesamtstunden der Woche (nur lesbar) -->
+        <label for="gesamtstunden">Gesamtstunden der Woche:</label>
+        <input type="number" id="gesamtstunden" name="gesamtstunden" readonly><br>
+
+        <!-- Eingabefeld für die Anzahl der Fehltage -->
+        <label for="fehltage">Anzahl Fehltage krank:</label>
+        <input type="number" id="fehltage" name="fehltage" required><br>
+
+        <!-- Eingabefeld für die Anzahl der Berufsschultage -->
+        <label for="berufsschule">Anzahl Tage Berufsschule:</label>
+        <input type="number" id="berufsschule" name="berufsschule" required><br>
+
+        <!-- Eingabefeld für die Anzahl der Tage im Unternehmen -->
+        <label for="unternehmen">Anzahl Tage Unternehmen:</label>
+        <input type="number" id="unternehmen" name="unternehmen" required><br>
+        
+        <!-- Button zum Erstellen des PDFs -->
+        <button type="button" onclick="generatePDF()">PDF erstellen</button>
+    </form>
+
+    <!-- Verlinkung der externen JavaScript-Datei -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>

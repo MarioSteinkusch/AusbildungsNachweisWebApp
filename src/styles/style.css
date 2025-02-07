@@ -1,0 +1,181 @@
+:root {
+    --background-light: #ffffff; /* Heller Hintergrund für den hellen Modus */
+    --background-dark: #333333; /* Dunkler Hintergrund für den dunklen Modus */
+    --primary-light: #007bff; /* Primärfarbe für den hellen Modus */
+    --primary-dark: #0056b3; /* Primärfarbe für den dunklen Modus */
+    --text-light: #000000; /* Textfarbe für den hellen Modus */
+    --text-dark: #ffffff; /* Textfarbe für den dunklen Modus */
+    --input-background-light: #f0f0f0; /* Hintergrundfarbe für Eingabefelder im hellen Modus */
+    --input-background-dark: #555555; /* Hintergrundfarbe für Eingabefelder im dunklen Modus */
+}
+
+body {
+    font-family: 'Calibri', sans-serif; /* Schriftart für die gesamte Seite */
+    background-color: var(--background-light); /* Hintergrundfarbe für den hellen Modus */
+    color: var(--text-light); /* Textfarbe für den hellen Modus */
+    margin: 0; /* Kein äußerer Abstand */
+    padding: 20px; /* Innerer Abstand von 20 Pixeln */
+    transition: background-color 0.3s, color 0.3s; /* Weicher Übergang bei Farbwechsel */
+}
+
+.theme-switch-wrapper {
+    position: fixed; /* Fest positioniert */
+    top: 20px; /* 20 Pixel vom oberen Rand entfernt */
+    right: 20px; /* 20 Pixel vom rechten Rand entfernt */
+    display: flex; /* Elemente innerhalb des Wrappers anordnen */
+    align-items: center; /* Zentriert die Elemente vertikal */
+    z-index: 1000; /* Über anderen Elementen anzeigen */
+    background-color: rgba(255, 255, 255, 0.8); /* 80% transparenter Hintergrund für den hellen Modus */
+    padding: 2px; /* Innerer Abstand von 2 Pixeln */
+    border-radius: 8px; /* Abgerundete Ecken */
+    transition: background-color 0.3s; /* Weicher Übergang bei Farbwechsel */
+}
+
+body.dark-theme .theme-switch-wrapper {
+    background-color: rgba(51, 51, 51, 0.8); /* 80% transparenter Hintergrund für den dunklen Modus */
+}
+
+.theme-switch {
+    display: none; /* Versteckt den Schalter */
+}
+
+.theme-switch-label {
+    cursor: pointer; /* Zeigt einen Zeiger-Cursor an */
+    display: flex; /* Flexbox-Layout */
+    align-items: center; /* Zentriert die Elemente vertikal */
+}
+
+.sun-icon, .moon-icon {
+    font-size: 24px; /* Schriftgröße von 24 Pixeln */
+    margin: 0 5px; /* 5 Pixel Abstand links und rechts */
+}
+
+.theme-switch:checked + .theme-switch-label .sun-icon {
+    display: none; /* Versteckt das Sonnen-Icon, wenn der Schalter aktiviert ist */
+}
+
+.theme-switch:not(:checked) + .theme-switch-label .moon-icon {
+    display: none; /* Versteckt das Mond-Icon, wenn der Schalter nicht aktiviert ist */
+}
+
+.container {
+    max-width: 800px; /* Maximale Breite von 800 Pixeln */
+    margin: 20px auto; /* 20 Pixel äußerer Abstand oben und unten, zentriert horizontal */
+    background: var(--background-light); /* Hintergrundfarbe für den hellen Modus */
+    padding: 20px; /* Innerer Abstand von 20 Pixeln */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
+    transition: background-color 0.3s; /* Weicher Übergang bei Farbwechsel */
+    box-sizing: border-box; /* Beinhaltet Padding in der Breite */
+}
+
+h1 {
+    text-align: center; /* Zentriert den Text */
+    color: var(--primary-light); /* Primärfarbe für den hellen Modus */
+    margin-top: 60px; /* 60 Pixel äußerer Abstand oben */
+}
+
+label {
+    display: block; /* Block-Layout */
+    margin: 10px 0 5px; /* 10 Pixel äußerer Abstand oben, 5 Pixel unten */
+    font-weight: bold; /* Fettschrift */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="week"],
+textarea {
+    width: calc(100% - 40px); /* Breite minus 40 Pixel für Padding */
+    padding: 10px; /* Innerer Abstand von 10 Pixeln */
+    margin-bottom: 20px; /* 20 Pixel äußerer Abstand unten */
+    border: 1px solid #ccc; /* 1 Pixel breiter Rand in Grau */
+    border-radius: 4px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße von 16 Pixeln */
+    box-sizing: border-box; /* Beinhaltet Padding in der Breite */
+    background-color: var(--input-background-light); /* Hintergrundfarbe für Eingabefelder im hellen Modus */
+    color: var(--text-light); /* Textfarbe für den hellen Modus */
+}
+
+button {
+    display: block; /* Block-Layout */
+    width: 25%; /* Volle Breite */
+    padding: 10px; /* Innerer Abstand von 10 Pixeln */
+    background-color: var(--primary-light); /* Primärfarbe für den hellen Modus */
+    color: var(--text-dark); /* Textfarbe für den dunklen Modus */
+    border: none; /* Kein Rand */
+    border-radius: 4px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße von 16 Pixeln */
+    cursor: pointer; /* Zeigt einen Zeiger-Cursor an */
+    transition: background-color 0.3s; /* Weicher Übergang bei Farbwechsel */
+    margin: 0 auto; /* Zentriert den Button horizontal */
+}
+
+button:hover {
+    background-color: var(--primary-dark); /* Primärfarbe für den dunklen Modus beim Hover */
+}
+
+.error {
+    color: red; /* Rote Textfarbe */
+    font-size: 14px; /* Schriftgröße von 14 Pixeln */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-light: #333333; /* Dunkler Hintergrund für den hellen Modus */
+        --background-dark: #000000; /* Schwarzer Hintergrund für den dunklen Modus */
+        --primary-light: #007bff; /* Primärfarbe für den hellen Modus */
+        --primary-dark: #0056b3; /* Primärfarbe für den dunklen Modus */
+        --text-light: #ffffff; /* Weiße Textfarbe für den hellen Modus */
+        --text-dark: #000000; /* Schwarze Textfarbe für den dunklen Modus */
+        --input-background-light: #555555; /* Hintergrundfarbe für Eingabefelder im dunklen Modus */
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Innerer Abstand von 10 Pixeln */
+    }
+
+    .container {
+        margin: 10px; /* 10 Pixel äußerer Abstand */
+        padding: 15px; /* Innerer Abstand von 15 Pixeln */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="week"],
+    textarea {
+        width: calc(100% - 30px); /* Breite minus 30 Pixel für Padding */
+    }
+}
+
+body.dark-theme {
+    background-color: var(--background-dark); /* Hintergrundfarbe für den dunklen Modus */
+    color: var(--text-dark); /* Textfarbe für den dunklen Modus */
+}
+
+body.dark-theme .container {
+    background-color: var(--background-dark); /* Hintergrundfarbe für den dunklen Modus */
+    color: var(--text-dark); /* Textfarbe für den dunklen Modus */
+}
+
+body.dark-theme h1 {
+    color: var(--primary-dark); /* Primärfarbe für den dunklen Modus */
+}
+
+body.dark-theme button {
+    background-color: var(--primary-dark); /* Primärfarbe für den dunklen Modus */
+    color: var(--text-light); /* Textfarbe für den hellen Modus */
+}
+
+body.dark-theme button:hover {
+    background-color: var(--primary-light); /* Primärfarbe für den hellen Modus beim Hover */
+}
+
+body.dark-theme input[type="text"],
+body.dark-theme input[type="number"],
+body.dark-theme input[type="week"],
+body.dark-theme textarea {
+    background-color: var(--input-background-dark); /* Hintergrundfarbe für Eingabefelder im dunklen Modus */
+    color: var(--text-light); /* Textfarbe für den hellen Modus */
+}
