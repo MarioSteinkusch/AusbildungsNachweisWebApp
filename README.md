@@ -1,3 +1,9 @@
+## Vorwort:
+
+Gestartet hat es im Unterricht als kleines Projekt für HTML/CSS/JAVASCRIPT Kenntnisse. Da ich diese WebApp tatsächlich nutzen wollen würde, wird es fertiggestellt. Noch ist diese Version nicht ganz fertig. 
+
+Für alle die helfen möchten, schreibt mir gerne hier bei github, egal ob Coder oder Ideengeber, alles hilft :) 
+
 # Webanwendung für Ausbildungsnachweis
 
 Dieses Projekt ist eine Webanwendung, die dazu dient, ein Dokument namens "Ausbildungsnachweis" zu erstellen und zu bearbeiten. Es verfügt über editierbare Felder, die es den Benutzern ermöglichen, Korrekturen vorzunehmen, bevor eine lokale Ausgabe generiert wird.
