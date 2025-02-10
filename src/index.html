@@ -10,6 +10,7 @@
     <!-- Verlinkung der externen CSS-Datei -->
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
 <body>
      <div class="theme-switch-wrapper">
@@ -35,8 +36,8 @@
         <input type="text" id="ausbildungsbereich" name="ausbildungsbereich" required><br>
 
         <!-- Eingabefeld für die Ausbildungswoche -->
-        <label for="woche">Ausbildungswoche:</label>
-        <input type="week" id="woche" name="woche" required><br>
+        <label for="week">Ausbildungswoche:</label>
+        <input type="week" id="week" name="week" required><br>
 
         <!-- Eingabefelder für Montag -->
         <div class="day-container" data-day="montag">
@@ -110,9 +111,8 @@
         <input type="number" id="unternehmen" name="unternehmen" required><br>
         
         <!-- Button zum Erstellen des PDFs -->
-        <button type="button" onclick="generatePDF()">PDF erstellen</button>
+        <button type="button" id="preview-button">PDF erstellen</button>
     </form>
-
     <!-- Verlinkung der externen JavaScript-Datei -->
     <script src="scripts/app.js"></script>
 </body>

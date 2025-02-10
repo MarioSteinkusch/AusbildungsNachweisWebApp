@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Vorschau</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </label>
+    </div>
+    <h1>PDF Vorschau</h1>
+    <div id="pdf-preview"></div>
+    <div class="button-container">
+        <button id="download-button">Download</button>
+        <button id="correction-button" class="correction-button">Korrektur</button>
+    </div>
+    <script src="scripts/preview.js"></script>
+</body>
+</html>

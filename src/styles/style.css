@@ -179,3 +179,64 @@ body.dark-theme textarea {
     background-color: var(--input-background-dark); /* Hintergrundfarbe für Eingabefelder im dunklen Modus */
     color: var(--text-light); /* Textfarbe für den hellen Modus */
 }
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pdf-preview {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-container .correction-button {
+    background-color: red;
+    color: white;
+    border: none;
+}
